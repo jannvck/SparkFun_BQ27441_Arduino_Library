@@ -31,11 +31,15 @@ BQ27441::BQ27441() : _deviceAddress(BQ72441_I2C_ADDRESS), _sealFlag(false), _use
 }
 
 // Initializes I2C and verifies communication with the BQ27441.
-bool BQ27441::begin(void)
+bool BQ27441::begin(int sda, int scl)
 {
 	uint16_t deviceID = 0;
 	
-	Wire.begin(); // Initialize I2C master
+	Serial.print("SDA: ");
+	Serial.print(sda);
+	Serial.print(" SCL: ");
+	Serial.println(scl);
+	Wire.begin(sda, scl); // Initialize I2C master
 	
 	deviceID = deviceType(); // Read deviceType from BQ27441
 	

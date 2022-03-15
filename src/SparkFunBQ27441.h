@@ -86,7 +86,7 @@ public:
 		
 		@return true if communication was successful.
 	*/
-	bool begin(void);
+	bool begin(int sda, int scl);
 	
 	/**
 	    Configures the design capacity of the connected battery.
